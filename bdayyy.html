@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Bestie! 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url('pic12.jpg') no-repeat center center / cover;
+      z-index: -1;
+    }
+
+    header {
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #d63447;
+    }
+
+    .media-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .media-section img,
+    .media-section video {
+      width: 90%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .flipcard-section {
+      padding: 3rem 1rem;
+    }
+
+    .flipcard-section h2 {
+      color: #d63447;
+      margin-bottom: 2rem;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 250px;
+      height: 300px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .flip-card-front {
+      background: #fff;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .flip-card-back {
+      background-color: #fff8f0;
+      color: #333;
+      transform: rotateY(180deg);
+    }
+
+    .gallery {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery h2 {
+      color: #d63447;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .caption {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 500;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .flip-card {
+        width: 80%;
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bg-music" loop>
+    <source src="music1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <div style="margin: 1rem;">
+    <button onclick="document.getElementById('bg-music').play()">▶️ Play Music</button>
+    <button onclick="document.getElementById('bg-music').pause()">⏹️ Stop Music</button>
+  </div>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    window.onload = () => {
+      const duration = 4 * 1000;
+      const end = Date.now() + duration;
+      (function frame() {
+        confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 } });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
+    };
+  </script>
+
+  <header>
+    <h1>🎂 Happy Birthday, Keeraaa! 🎉</h1>
+    <p>Here’s a little surprise full of love, memories, and magic 💖</p>
+  </header>
+
+  <section class="media-section">
+    <img src="pic1.jpg" alt="Birthday Photo" />
+    <video controls>
+      <source src="bdayvideo1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section class="flipcard-section">
+    <h2>💌 Little Notes Just for You!</h2>
+    <div class="card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="pic13.jpg" alt="Friend 1">
+          </div>
+          <div class="flip-card-back">
+            <h3>🌸 Just for You, Birthday Girl!</h3>
+            <p>Wishing you the happiest day ever! Love you to bits! There are friends, and then there’s you — the one who feels like home, like comfort, like sunshine. Thank you for being my safe space 🎉</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="pic14.jpg" alt="Friend 2">
+          </div>
+          <div class="flip-card-back">
+            <h3>🎀 Wrapped in Love!</h3>
+            <p>I hope you feel hugged by every word, every wish, and every moment today. You deserve a world full of warmth, laughter, and love.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="pic15.jpg" alt="Friend 3">
+          </div>
+          <div class="flip-card-back">
+            <h3>🎂 Here’s a Slice of Joy!</h3>
+            <p>You’re aging like fine chocolate—sweeter every year! 🍫🎂 Age Is Just a Number
+              "...and in your case, a really big one! 😂 But don’t worry, you’re still fabulous!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>📷 Memory Lane</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="pic8.jpg" alt="Memory 1" /><div class="caption">Backchaos 🌝</div></div>
+      <div class="gallery-item"><img src="pic2.jpg" alt="Memory 2" /><div class="caption">Scootscape 🛵
+      </div></div>
+      <div class="gallery-item"><img src="pic3.jpg" alt="Memory 3" /><div class="caption">Facebomb 📸</div></div>
+      <div class="gallery-item"><img src="pic4.jpg" alt="Memory 4" /><div class="caption">Wingfail 😅</div></div>
+      <div class="gallery-item"><img src="pic5.jpg" alt="Memory 5" /><div class="caption">Bunkbae 😎😜</div></div>
+      <div class="gallery-item"><img src="pic6.jpg" alt="Memory 6" /><div class="caption">Us and the devine ❤</div></div>
+      <div class="gallery-item"><img src="pic7.jpg" alt="Memory 7" /><div class="caption">First pic in traditional 🫶</div></div>
+      <div class="gallery-item"><img src="pic10.jpg" alt="Memory 8" /><div class="caption">Cakesaster 🎂😂</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with 💜</p>
+  </footer>
+</body>
+</html>
+/html>
